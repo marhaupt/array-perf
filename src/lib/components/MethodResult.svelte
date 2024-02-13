@@ -11,6 +11,13 @@
 
     let durations: number[] = [];
 
+    $: countNumber =
+        count === 'thousand'
+            ? 1_000
+            : count === 'hundred'
+              ? 100
+              : 10;
+
     onMount(() => {
         methodToTest.methods.forEach((method, index) => {
             durations[index] = getOperationDuration(() =>
@@ -22,21 +29,21 @@
 
 <h1
     style:view-transition-name="title-{methodToTest.key}"
-    class="mb-7 mt-4 text-4xl"
+    class="mb-7 mt-4 text-center text-3xl text-[#65ebab] sm:text-left sm:text-4xl"
 >
     {methodToTest.title}
+    <span class="block opacity-40 sm:inline">
+        // Array({countNumber})</span
+    >
 </h1>
 
-<div class="flex flex-col gap-7">
+<div class="flex flex-col gap-7 text-center sm:text-left">
     {#each methodToTest.methods as method, index}
         <div>
-            <h2 class="text-2xl">{method.title}</h2>
-            <Code>
-                {method.fn}
-            </Code>
-            <div class="text-lg">
+            <h2 class="text-2xl text-[#fc970c]">
+                {method.title}
                 {#if durations?.[index]}
-                    Duration <strong>
+                    <strong class="text-primary">
                         {durations[index].toLocaleString(
                             'cs-CZ',
                             {
@@ -44,10 +51,11 @@
                             }
                         ) + ' ms'}
                     </strong>
-                {:else}
-                    Loading...
                 {/if}
-            </div>
+            </h2>
+            <Code>
+                {method.fn}
+            </Code>
         </div>
     {/each}
 </div>

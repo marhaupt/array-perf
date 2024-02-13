@@ -10,7 +10,11 @@
 
 <nav>
     {#if $page.url.pathname !== '/'}
-        <a href="/" style:view-transition-name="logo">
+        <a
+            href="/"
+            style:view-transition-name="logo"
+            class="mb-3"
+        >
             <Logo size="small" />
         </a>
     {/if}

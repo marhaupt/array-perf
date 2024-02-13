@@ -15,6 +15,7 @@
     img {
         max-width: 100%;
         border-radius: 10%;
+        aspect-ratio: 1 / 1;
     }
 
     .small {

@@ -19,4 +19,10 @@
         flex-direction: column;
         font-size: 32px;
     }
+
+    @media (max-width: 600px) {
+        .home {
+            font-size: 24px;
+        }
+    }
 </style>

@@ -27,11 +27,11 @@ export const methods: Record<string, Method> = {
         title: 'sort vs. toSorted',
         methods: [
             {
-                title: 'Old school sort',
+                title: 'sort',
                 fn: oldSchoolSort
             },
             {
-                title: 'toSorted way',
+                title: 'toSorted',
                 fn: toSortedWay
             }
         ]
