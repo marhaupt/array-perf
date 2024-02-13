@@ -1,11 +1,17 @@
 <script lang="ts">
     import { page } from '$app/stores';
     import { methods } from '$lib/methods';
+    import { onMount } from 'svelte';
     import Logo from './Logo.svelte';
 
-    let align: 'right' | 'center' = 'center';
+    let withActive = false;
 
-    $: console.log($page.url.pathname);
+    onMount(() => {
+        // @ts-ignore
+        if (!document.startViewTransition) {
+            withActive = true;
+        }
+    });
 </script>
 
 <nav>
@@ -19,12 +25,15 @@
         </a>
     {/if}
     {#each Object.values(methods) as method}
-        {#if $page.url.pathname !== method.route}
+        {#if $page.url.pathname !== method.route || withActive}
             <a
                 href={method.route}
                 style:view-transition-name="title-{method.key}"
-                >{method.title}</a
+                class:active={$page.url.pathname ===
+                    method.route}
             >
+                {method.title}
+            </a>
         {/if}
     {/each}
 </nav>
@@ -36,5 +45,10 @@
         row-gap: 12px;
         align-items: center;
         text-align: center;
+    }
+
+    a.active {
+        color: #65ebab;
+        cursor: default;
     }
 </style>
