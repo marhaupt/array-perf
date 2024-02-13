@@ -12,13 +12,13 @@
 <style lang="postcss">
     .layout {
         display: grid;
-        grid-template-columns: 260px minmax(0, 1fr);
+        grid-template-columns: 280px minmax(0, 1fr);
         row-gap: 8px;
         column-gap: 32px;
         padding-top: clamp(12px, 4vw, 24px);
     }
 
-    @media (max-width: 640px) {
+    @media (max-width: 1024px) {
         .layout {
             grid-template-columns: minmax(0, 1fr);
         }

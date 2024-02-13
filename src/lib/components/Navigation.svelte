@@ -42,7 +42,7 @@
     nav {
         display: flex;
         flex-direction: column;
-        row-gap: 12px;
+        row-gap: 0.75lh;
         align-items: center;
         text-align: center;
     }
