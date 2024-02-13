@@ -1,10 +1,10 @@
-import type { User } from '$lib/list/User';
+import type { User } from '$lib/types/User';
 
 export const sumForOf = (data: User[]) => {
     let sum = 0;
 
-    for (const item of data) {
-        sum += item.age;
+    for (const user of data) {
+        sum += user.age;
     }
 
     return sum;
@@ -13,12 +13,12 @@ export const sumForOf = (data: User[]) => {
 export const sumForEach = (data: User[]) => {
     let sum = 0;
 
-    data.forEach((item) => {
-        sum += item.age;
+    data.forEach((user) => {
+        sum += user.age;
     });
 
     return sum;
 };
 
 export const sumReduce = (data: User[]) =>
-    data.reduce((acc, item) => acc + item.age, 0);
+    data.reduce((acc, user) => acc + user.age, 0);

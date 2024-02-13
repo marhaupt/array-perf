@@ -1,26 +1,35 @@
 <script lang="ts">
     import * as ToggleGroup from '$lib/components/ui/toggle-group';
     import { getOperationDuration } from '$lib/getOperationDuration';
-    import type { Count } from '$lib/list/Count';
     import { getDataByCount } from '$lib/list/getDataByCount';
-    import type { Method } from '$lib/methods';
+    import type { Count } from '$lib/types/Count';
+    import type { Method } from '$lib/types/Method';
     import { Crown } from 'lucide-svelte';
     import Code from './Code.svelte';
 
     export let methodToTest: Method;
 
     export let count: Count = 'thousand';
+    let previousCount: Count;
 
     let durations: number[] = [];
 
     $: {
-        const data = getDataByCount(count);
+        if (count === undefined) {
+            count = previousCount;
+        } else {
+            previousCount = count;
 
-        methodToTest.methods.forEach((method, index) => {
-            durations[index] = getOperationDuration(() =>
-                method.fn(data)
+            const data = getDataByCount(count);
+
+            methodToTest.methods.forEach(
+                (method, index) => {
+                    durations[index] = getOperationDuration(
+                        () => method.fn(data)
+                    );
+                }
             );
-        });
+        }
     }
 
     $: minValue = Math.min(...durations);
@@ -37,7 +46,7 @@
     class="mx-auto flex max-w-[600px] flex-col gap-7 text-center lg:mx-0 lg:max-w-[800px] lg:text-left"
 >
     <div
-        class=" flex justify-center text-xl text-secondary-foreground lg:justify-start"
+        class="flex justify-center text-xl text-secondary-foreground lg:justify-start"
     >
         <ToggleGroup.Root
             type="single"

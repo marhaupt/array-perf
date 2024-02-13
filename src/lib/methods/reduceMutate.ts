@@ -1,14 +1,14 @@
-import type { User } from '$lib/list/User';
+import type { User } from '$lib/types/User';
 
 export const reduceSpread = (data: User[]) => {
-    data.reduce<User[]>((acc, item) => {
-        return [...acc, item];
+    data.reduce<User[]>((acc, user) => {
+        return [...acc, user];
     }, []);
 };
 
 export const reduceMutate = (data: User[]) => {
-    data.reduce<User[]>((acc, item) => {
-        acc.push(item);
+    data.reduce<User[]>((acc, user) => {
+        acc.push(user);
         return acc;
     }, []);
 };

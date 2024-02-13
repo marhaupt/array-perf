@@ -1,24 +1,19 @@
-import type { User } from '$lib/list/User';
+import type { Method } from '../types/Method';
 import {
     sumForEach,
     sumForOf,
     sumReduce
 } from './forOfEachReduce';
+import {
+    simpleFilter,
+    simpleMap,
+    simpleReduce
+} from './mapFilterReduce';
 import { reduceMutate, reduceSpread } from './reduceMutate';
 import {
     oldSchoolSort,
     toSortedWay
 } from './sortFunctions';
-
-export type Method = {
-    key: string;
-    route: string;
-    title: string;
-    methods: Array<{
-        title: string;
-        fn: (data: User[]) => void;
-    }>;
-};
 
 export const methods: Record<string, Method> = {
     sort: {
@@ -33,6 +28,25 @@ export const methods: Record<string, Method> = {
             {
                 title: 'toSorted',
                 fn: toSortedWay
+            }
+        ]
+    },
+    basics: {
+        key: 'basics',
+        route: '/basics',
+        title: 'map vs. filter vs. reduce',
+        methods: [
+            {
+                title: 'map',
+                fn: simpleMap
+            },
+            {
+                title: 'filter',
+                fn: simpleFilter
+            },
+            {
+                title: 'reduce',
+                fn: simpleReduce
             }
         ]
     },
