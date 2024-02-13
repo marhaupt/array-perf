@@ -1,14 +1,9 @@
-import type { Count } from '$lib/list/Count';
-import { getDataByCount } from '$lib/list/getDataByCount';
+import type { User } from '$lib/list/User';
 
-export const oldSchoolSort = (count: Count) => {
-  [...getDataByCount(count)].sort(
-    (itemA, itemB) => itemA.age - itemB.age
-  );
+export const oldSchoolSort = (data: User[]) => {
+    [...data].sort((itemA, itemB) => itemA.age - itemB.age);
 };
 
-export const toSortedWay = (count: Count) => {
-  getDataByCount(count).toSorted(
-    (itemA, itemB) => itemA.age - itemB.age
-  );
+export const toSortedWay = (data: User[]) => {
+    data.toSorted((itemA, itemB) => itemA.age - itemB.age);
 };

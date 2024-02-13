@@ -4,6 +4,7 @@
     import type { Method } from '$lib/methods';
     import { onMount } from 'svelte';
     import Code from './Code.svelte';
+    import { getDataByCount } from '$lib/list/getDataByCount';
 
     export let methodToTest: Method;
 
@@ -19,9 +20,11 @@
               : 10;
 
     onMount(() => {
+        const data = getDataByCount(count);
+
         methodToTest.methods.forEach((method, index) => {
             durations[index] = getOperationDuration(() =>
-                method.fn(count)
+                method.fn(data)
             );
         });
     });

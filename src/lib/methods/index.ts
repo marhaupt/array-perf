@@ -1,4 +1,4 @@
-import type { Count } from '$lib/list/Count';
+import type { User } from '$lib/list/User';
 import {
     sumForEach,
     sumForOf,
@@ -16,7 +16,7 @@ export type Method = {
     title: string;
     methods: Array<{
         title: string;
-        fn: (count: Count) => void;
+        fn: (data: User[]) => void;
     }>;
 };
 

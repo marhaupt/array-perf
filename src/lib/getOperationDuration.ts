@@ -1,10 +1,10 @@
 export const getOperationDuration = (
     operation: () => void,
-    count: number = 1000
+    repeatCount: number = 1000
 ): number => {
     const start = performance.now();
 
-    for (let i = 0; i < count; i++) {
+    for (let i = 0; i < repeatCount; i++) {
         operation();
     }
 
