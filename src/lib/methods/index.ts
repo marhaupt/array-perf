@@ -1,87 +1,111 @@
-import type { Method } from '../types/Method';
+import type { Method } from "../types/Method";
 import {
     sumForEach,
     sumForOf,
-    sumReduce
-} from './forOfEachReduce';
+    sumReduce,
+} from "./forOfEachReduce";
 import {
     simpleFilter,
     simpleMap,
-    simpleReduce
-} from './mapFilterReduce';
-import { reduceMutate, reduceSpread } from './reduceMutate';
+    simpleReduce,
+} from "./mapFilterReduce";
+import { reduceMutate, reduceSpread } from "./reduceMutate";
+import {
+    sliceMethod,
+    spliceMethod,
+    toSplicedMethod,
+} from "./sliceSplice";
 import {
     oldSchoolSort,
-    toSortedWay
-} from './sortFunctions';
+    toSortedWay,
+} from "./sortFunctions";
 
 export const methods: Record<string, Method> = {
     sort: {
-        key: 'sort',
-        route: '/sort',
-        title: 'sort vs. toSorted',
+        key: "sort",
+        route: "/sort",
+        title: "sort vs. toSorted",
         methods: [
             {
-                title: 'sort',
-                fn: oldSchoolSort
+                title: "sort",
+                fn: oldSchoolSort,
             },
             {
-                title: 'toSorted',
-                fn: toSortedWay
-            }
-        ]
+                title: "toSorted",
+                fn: toSortedWay,
+            },
+        ],
     },
     basics: {
-        key: 'basics',
-        route: '/basics',
-        title: 'map vs. filter vs. reduce',
+        key: "basics",
+        route: "/basics",
+        title: "map vs. filter vs. reduce",
         methods: [
             {
-                title: 'map',
-                fn: simpleMap
+                title: "map",
+                fn: simpleMap,
             },
             {
-                title: 'filter',
-                fn: simpleFilter
+                title: "filter",
+                fn: simpleFilter,
             },
             {
-                title: 'reduce',
-                fn: simpleReduce
-            }
-        ]
+                title: "reduce",
+                fn: simpleReduce,
+            },
+        ],
     },
     sum: {
-        key: 'sum',
-        route: '/sum',
-        title: 'for...of vs. forEach vs. reduce',
+        key: "sum",
+        route: "/sum",
+        title: "for...of vs. forEach vs. reduce",
         methods: [
             {
-                title: 'for...of',
-                fn: sumForOf
+                title: "for...of",
+                fn: sumForOf,
             },
             {
-                title: 'forEach',
-                fn: sumForEach
+                title: "forEach",
+                fn: sumForEach,
             },
             {
-                title: 'reduce',
-                fn: sumReduce
-            }
-        ]
+                title: "reduce",
+                fn: sumReduce,
+            },
+        ],
+    },
+    slice: {
+        key: "slice",
+        route: "/slice",
+        title: "slice vs. splice vs. toSpliced",
+        methods: [
+            {
+                title: "slice",
+                fn: sliceMethod,
+            },
+            {
+                title: "splice",
+                fn: spliceMethod,
+            },
+            {
+                title: "toSpliced",
+                fn: toSplicedMethod,
+            },
+        ],
     },
     reduce: {
-        key: 'reduce',
-        route: '/reduce',
-        title: 'reduce mutate vs. spread',
+        key: "reduce",
+        route: "/reduce",
+        title: "reduce mutate vs. spread",
         methods: [
             {
-                title: 'reduce spread',
-                fn: reduceSpread
+                title: "reduce spread",
+                fn: reduceSpread,
             },
             {
-                title: 'reduce mutate',
-                fn: reduceMutate
-            }
-        ]
-    }
+                title: "reduce mutate",
+                fn: reduceMutate,
+            },
+        ],
+    },
 };

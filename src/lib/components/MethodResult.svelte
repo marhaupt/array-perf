@@ -82,7 +82,7 @@
                 class="flex items-center justify-center gap-[1ch] text-xl text-accent-foreground sm:text-2xl lg:justify-start"
             >
                 {method.title}
-                {#if durations?.[index]}
+                {#if durations?.[index] !== undefined}
                     <strong class="text-primary">
                         {durations[index].toLocaleString(
                             'cs-CZ',
