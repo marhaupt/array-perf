@@ -1,5 +1,11 @@
 import type { Method } from "../types/Method";
 import {
+    copyClone,
+    copyJson,
+    copySlice,
+    copySpread,
+} from "./copyArray";
+import {
     sumForEach,
     sumForOf,
     sumReduce,
@@ -11,31 +17,22 @@ import {
 } from "./mapFilterReduce";
 import { reduceMutate, reduceSpread } from "./reduceMutate";
 import {
+    reverseMethod,
+    sliceReverse,
+    toReversedMethod,
+} from "./reverseFunctions";
+import {
     sliceMethod,
     spliceMethod,
     toSplicedMethod,
 } from "./sliceSplice";
 import {
     oldSchoolSort,
+    sliceSort,
     toSortedWay,
 } from "./sortFunctions";
 
 export const methods: Record<string, Method> = {
-    sort: {
-        key: "sort",
-        route: "/sort",
-        title: "sort vs. toSorted",
-        methods: [
-            {
-                title: "sort",
-                fn: oldSchoolSort,
-            },
-            {
-                title: "toSorted",
-                fn: toSortedWay,
-            },
-        ],
-    },
     basics: {
         key: "basics",
         route: "/basics",
@@ -90,6 +87,67 @@ export const methods: Record<string, Method> = {
             {
                 title: "toSpliced",
                 fn: toSplicedMethod,
+            },
+        ],
+    },
+    sort: {
+        key: "sort",
+        route: "/sort",
+        title: "sort vs. toSorted vs. slice+sort",
+        methods: [
+            {
+                title: "sort",
+                fn: oldSchoolSort,
+            },
+            {
+                title: "toSorted",
+                fn: toSortedWay,
+            },
+            {
+                title: "slice sort",
+                fn: sliceSort,
+            },
+        ],
+    },
+    reverse: {
+        key: "reverse",
+        route: "/reverse",
+        title: "reverse vs. toReversed",
+        methods: [
+            {
+                title: "reverse",
+                fn: reverseMethod,
+            },
+            {
+                title: "toReversed",
+                fn: toReversedMethod,
+            },
+            {
+                title: "slice reverse",
+                fn: sliceReverse,
+            },
+        ],
+    },
+    copy: {
+        key: "copy",
+        route: "/copy",
+        title: "spread vs. slice vs. clone vs. json",
+        methods: [
+            {
+                title: "spread",
+                fn: copySpread,
+            },
+            {
+                title: "slice",
+                fn: copySlice,
+            },
+            {
+                title: "clone",
+                fn: copyClone,
+            },
+            {
+                title: "json",
+                fn: copyJson,
             },
         ],
     },

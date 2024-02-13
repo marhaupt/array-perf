@@ -7,3 +7,9 @@ export const oldSchoolSort = (data: User[]) => {
 export const toSortedWay = (data: User[]) => {
     data.toSorted((userA, userB) => userA.age - userB.age);
 };
+
+export const sliceSort = (data: User[]) => {
+    data.slice().sort(
+        (userA, userB) => userA.age - userB.age,
+    );
+};
