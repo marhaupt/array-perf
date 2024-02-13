@@ -1,11 +1,14 @@
-export const getOperationDuration = (operation: () => void, count: number = 10): number => {
-	const start = performance.now();
+export const getOperationDuration = (
+    operation: () => void,
+    count: number = 1000
+): number => {
+    const start = performance.now();
 
-	for (let i = 0; i < count; i++) {
-		operation();
-	}
+    for (let i = 0; i < count; i++) {
+        operation();
+    }
 
-	const end = performance.now();
+    const end = performance.now();
 
-	return end - start;
+    return end - start;
 };

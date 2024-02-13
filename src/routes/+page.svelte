@@ -1,28 +1,22 @@
 <script lang="ts">
-	import { getOperationDuration } from '$lib/getOperationDuration';
-	import type { User } from '$lib/list/User';
-	import { getDataByCount } from '$lib/list/getDataByCount';
-
-	const mapResult = getOperationDuration(() => {
-		getDataByCount('thousand').map((item) => item);
-	}, 1000);
-	const reduceResult = getOperationDuration(() => {
-		getDataByCount('thousand').reduce<User[]>((acc, item) => {
-			return [...acc, item];
-		}, []);
-	}, 1000);
-
-	const reduceMutateResult = getOperationDuration(() => {
-		getDataByCount('thousand').reduce<User[]>((acc, item) => {
-			acc.push(item);
-			return acc;
-		}, []);
-	}, 1000);
-
-	$: console.log('mapResult', mapResult);
-	$: console.log('reduceResult', reduceResult);
-	$: console.log('reduceMutateResult', reduceMutateResult);
+    import Logo from '$lib/components/Logo.svelte';
+    import Navigation from '$lib/components/Navigation.svelte';
 </script>
 
-<h1>Welcome to SvelteKit</h1>
-<p>Visit <a href="https://kit.svelte.dev">kit.svelte.dev</a> to read the documentation</p>
+<div class="home">
+    <h1 style:view-transition-name="logo">
+        <Logo size="large" />
+    </h1>
+    <Navigation />
+</div>
+
+<style lang="postcss">
+    .home {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 70svh;
+        flex-direction: column;
+        font-size: 32px;
+    }
+</style>
