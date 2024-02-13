@@ -6,13 +6,11 @@
     type $$Events = DropdownMenuPrimitive.SubContentEvents;
 
     let className: $$Props["class"] = undefined;
-    export let transition: $$Props["transition"] =
-        flyAndScale;
-    export let transitionConfig: $$Props["transitionConfig"] =
-        {
-            x: -10,
-            y: 0,
-        };
+    export let transition: $$Props["transition"] = flyAndScale;
+    export let transitionConfig: $$Props["transitionConfig"] = {
+        x: -10,
+        y: 0,
+    };
     export { className as class };
 </script>
 

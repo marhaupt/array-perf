@@ -3,7 +3,4 @@
     import { methods } from "$lib/methods";
 </script>
 
-<MethodResult
-    methodToTest={methods.reduce}
-    count="hundred"
-/>
+<MethodResult methodToTest={methods.reduce} count="hundred" />

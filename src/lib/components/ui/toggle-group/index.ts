@@ -4,9 +4,7 @@ import { getContext, setContext } from "svelte";
 import Root from "./toggle-group.svelte";
 import Item from "./toggle-group-item.svelte";
 
-export type ToggleVariants = VariantProps<
-    typeof toggleVariants
->;
+export type ToggleVariants = VariantProps<typeof toggleVariants>;
 
 export function setToggleGroupCtx(props: ToggleVariants) {
     setContext("toggleGroup", props);

@@ -21,12 +21,8 @@ export const toggleVariants = tv({
     },
 });
 
-export type Variant = VariantProps<
-    typeof toggleVariants
->["variant"];
-export type Size = VariantProps<
-    typeof toggleVariants
->["size"];
+export type Variant = VariantProps<typeof toggleVariants>["variant"];
+export type Size = VariantProps<typeof toggleVariants>["size"];
 
 export {
     Root,

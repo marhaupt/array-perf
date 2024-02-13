@@ -22,13 +22,9 @@
 
             const data = getDataByCount(count);
 
-            methodToTest.methods.forEach(
-                (method, index) => {
-                    durations[index] = getOperationDuration(
-                        () => method.fn(data),
-                    );
-                },
-            );
+            methodToTest.methods.forEach((method, index) => {
+                durations[index] = getOperationDuration(() => method.fn(data));
+            });
         }
     }
 
@@ -37,7 +33,7 @@
 
 <h1
     style:view-transition-name="title-{methodToTest.key}"
-    class="mb-4 mt-4 text-center text-2xl text-secondary-foreground sm:text-3xl lg:text-left xl:text-4xl"
+    class="mb-4 mt-4 text-center text-4xl text-secondary-foreground sm:text-5xl lg:text-left"
 >
     {methodToTest.title}
 </h1>
@@ -45,33 +41,15 @@
 <div
     class="mx-auto flex max-w-[600px] flex-col gap-7 text-center lg:mx-0 lg:max-w-[800px] lg:text-left"
 >
-    <div
-        class="flex justify-center text-xl text-secondary-foreground lg:justify-start"
-    >
-        <ToggleGroup.Root
-            type="single"
-            size="sm"
-            bind:value={count}
-        >
-            <ToggleGroup.Item
-                value="ten"
-                aria-label="Toggle 10"
-                class="text-[1rem]"
-            >
+    <div class="flex justify-center text-xl text-secondary-foreground lg:justify-start">
+        <ToggleGroup.Root type="single" size="sm" bind:value={count}>
+            <ToggleGroup.Item value="ten" aria-label="Toggle 10" class="text-[1rem]">
                 10
             </ToggleGroup.Item>
-            <ToggleGroup.Item
-                value="hundred"
-                aria-label="Toggle 100"
-                class="text-[1rem]"
-            >
+            <ToggleGroup.Item value="hundred" aria-label="Toggle 100" class="text-[1rem]">
                 100
             </ToggleGroup.Item>
-            <ToggleGroup.Item
-                value="thousand"
-                aria-label="Toggle 1000"
-                class="text-[1rem]"
-            >
+            <ToggleGroup.Item value="thousand" aria-label="Toggle 1000" class="text-[1rem]">
                 1000
             </ToggleGroup.Item>
         </ToggleGroup.Root>
@@ -79,23 +57,18 @@
     {#each methodToTest.methods as method, index}
         <div>
             <h2
-                class="flex items-center justify-center gap-[1ch] text-xl text-accent-foreground sm:text-2xl lg:justify-start"
+                class="flex items-center justify-center gap-[1ch] text-2xl text-accent-foreground sm:text-3xl lg:justify-start"
             >
                 {method.title}
                 {#if durations?.[index] !== undefined}
                     <strong class="text-primary">
-                        {durations[index].toLocaleString(
-                            "cs-CZ",
-                            {
-                                maximumFractionDigits: 3,
-                            },
-                        )} ms
+                        {durations[index].toLocaleString("cs-CZ", {
+                            maximumFractionDigits: 3,
+                        })} ms
                     </strong>
 
                     {#if durations[index] === minValue}
-                        <span
-                            class="text-secondary-foreground"
-                        >
+                        <span class="text-secondary-foreground">
                             <Crown />
                         </span>
                     {/if}

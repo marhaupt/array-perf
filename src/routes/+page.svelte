@@ -4,10 +4,7 @@
 </script>
 
 <div class="home">
-    <h1
-        style:view-transition-name="logo"
-        class="mb-8 dark:mb-4"
-    >
+    <h1 style:view-transition-name="logo" class="mb-8 dark:mb-4">
         <Logo size="large" />
     </h1>
     <Navigation />
@@ -26,7 +23,7 @@
 
     @media (max-width: 600px) {
         .home {
-            font-size: 18px;
+            font-size: 22px;
         }
     }
 </style>

@@ -3,7 +3,7 @@
 </script>
 
 <div class="layout">
-    <Navigation />
+    <Navigation responsive />
     <main>
         <slot />
     </main>

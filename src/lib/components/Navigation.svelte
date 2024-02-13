@@ -1,50 +1,54 @@
 <script lang="ts">
     import { page } from "$app/stores";
     import { methods } from "$lib/methods";
-    import { onMount } from "svelte";
     import Logo from "./Logo.svelte";
 
-    let withActive = false;
-
-    onMount(() => {
-        // @ts-ignore
-        if (!document.startViewTransition) {
-            withActive = true;
-        }
-    });
+    export let responsive = false;
 </script>
 
 <nav>
     {#if $page.url.pathname !== "/"}
-        <a
-            href="/"
-            style:view-transition-name="logo"
-            class="mb-3"
-        >
+        <a href="/" style:view-transition-name="logo" class="mb-3">
             <Logo size="small" />
         </a>
     {/if}
-    {#each Object.values(methods) as method}
-        {#if $page.url.pathname !== method.route || withActive}
+    <div class="links" class:responsive>
+        {#each Object.values(methods) as method}
             <a
                 href={method.route}
-                style:view-transition-name="title-{method.key}"
-                class:active={$page.url.pathname ===
-                    method.route}
+                style:view-transition-name="nav-{method.key}"
+                class:active={$page.url.pathname === method.route}
             >
                 {method.title}
             </a>
-        {/if}
-    {/each}
+        {/each}
+    </div>
 </nav>
 
 <style lang="postcss">
     nav {
         display: flex;
-        flex-direction: column;
-        row-gap: 0.75lh;
+        gap: 0.5lh;
         align-items: center;
         text-align: center;
+        flex-direction: column;
+        max-width: 600px;
+        margin-inline: auto;
+    }
+
+    .links {
+        display: flex;
+        gap: inherit;
+        flex-wrap: wrap;
+        justify-content: center;
+        flex-direction: column;
+    }
+
+    @media (max-width: 1024px) {
+        .links.responsive {
+            padding-inline: 15vw;
+            flex-direction: row;
+        }
     }
 
     a.active {

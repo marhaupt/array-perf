@@ -20,5 +20,4 @@ export const sumForEach = (data: User[]) => {
     return sum;
 };
 
-export const sumReduce = (data: User[]) =>
-    data.reduce((acc, user) => acc + user.age, 0);
+export const sumReduce = (data: User[]) => data.reduce((acc, user) => acc + user.age, 0);

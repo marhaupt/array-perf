@@ -1,42 +1,17 @@
 import type { Method } from "../types/Method";
-import {
-    copyClone,
-    copyJson,
-    copySlice,
-    copySpread,
-} from "./copyArray";
-import {
-    sumForEach,
-    sumForOf,
-    sumReduce,
-} from "./forOfEachReduce";
-import {
-    simpleFilter,
-    simpleMap,
-    simpleReduce,
-} from "./mapFilterReduce";
+import { copyClone, copyJson, copySlice, copySpread } from "./copyArray";
+import { sumForEach, sumForOf, sumReduce } from "./forOfEachReduce";
+import { simpleFilter, simpleMap, simpleReduce } from "./mapFilterReduce";
 import { reduceMutate, reduceSpread } from "./reduceMutate";
-import {
-    reverseMethod,
-    sliceReverse,
-    toReversedMethod,
-} from "./reverseFunctions";
-import {
-    sliceMethod,
-    spliceMethod,
-    toSplicedMethod,
-} from "./sliceSplice";
-import {
-    oldSchoolSort,
-    sliceSort,
-    toSortedWay,
-} from "./sortFunctions";
+import { reverseMethod, sliceReverse, toReversedMethod } from "./reverseFunctions";
+import { sliceMethod, spliceMethod, toSplicedMethod } from "./sliceSplice";
+import { oldSchoolSort, sliceSort, toSortedWay } from "./sortFunctions";
 
 export const methods: Record<string, Method> = {
     basics: {
         key: "basics",
         route: "/basics",
-        title: "map vs. filter vs. reduce",
+        title: "basics",
         methods: [
             {
                 title: "map",
@@ -55,7 +30,7 @@ export const methods: Record<string, Method> = {
     sum: {
         key: "sum",
         route: "/sum",
-        title: "for...of vs. forEach vs. reduce",
+        title: "sum",
         methods: [
             {
                 title: "for...of",
@@ -74,7 +49,7 @@ export const methods: Record<string, Method> = {
     slice: {
         key: "slice",
         route: "/slice",
-        title: "slice vs. splice vs. toSpliced",
+        title: "slice",
         methods: [
             {
                 title: "slice",
@@ -93,7 +68,7 @@ export const methods: Record<string, Method> = {
     sort: {
         key: "sort",
         route: "/sort",
-        title: "sort vs. toSorted vs. slice+sort",
+        title: "sort",
         methods: [
             {
                 title: "sort",
@@ -112,7 +87,7 @@ export const methods: Record<string, Method> = {
     reverse: {
         key: "reverse",
         route: "/reverse",
-        title: "reverse vs. toReversed",
+        title: "reverse",
         methods: [
             {
                 title: "reverse",
@@ -131,7 +106,7 @@ export const methods: Record<string, Method> = {
     copy: {
         key: "copy",
         route: "/copy",
-        title: "spread vs. slice vs. clone vs. json",
+        title: "copy",
         methods: [
             {
                 title: "spread",
@@ -154,7 +129,7 @@ export const methods: Record<string, Method> = {
     reduce: {
         key: "reduce",
         route: "/reduce",
-        title: "reduce mutate vs. spread",
+        title: "reduce",
         methods: [
             {
                 title: "reduce spread",

@@ -9,7 +9,5 @@ export const toSortedWay = (data: User[]) => {
 };
 
 export const sliceSort = (data: User[]) => {
-    data.slice().sort(
-        (userA, userB) => userA.age - userB.age,
-    );
+    data.slice().sort((userA, userB) => userA.age - userB.age);
 };

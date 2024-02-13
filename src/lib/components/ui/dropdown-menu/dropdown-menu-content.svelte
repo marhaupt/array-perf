@@ -7,10 +7,8 @@
 
     let className: $$Props["class"] = undefined;
     export let sideOffset: $$Props["sideOffset"] = 4;
-    export let transition: $$Props["transition"] =
-        flyAndScale;
-    export let transitionConfig: $$Props["transitionConfig"] =
-        undefined;
+    export let transition: $$Props["transition"] = flyAndScale;
+    export let transitionConfig: $$Props["transitionConfig"] = undefined;
     export { className as class };
 </script>
 
