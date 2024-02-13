@@ -1,7 +1,7 @@
 export type User = {
-	name: string;
-	email: string;
-	active: boolean;
-	age: number;
-	country: string;
+    name: string;
+    email: string;
+    active: boolean;
+    age: number;
+    country: string;
 };

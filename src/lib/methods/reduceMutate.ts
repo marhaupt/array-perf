@@ -1,4 +1,4 @@
-import type { User } from '$lib/types/User';
+import type { User } from "$lib/types/User";
 
 export const reduceSpread = (data: User[]) => {
     data.reduce<User[]>((acc, user) => {

@@ -1,4 +1,4 @@
-import type { User } from '$lib/types/User';
+import type { User } from "$lib/types/User";
 
 export const simpleMap = (data: User[]) => {
     data.map((user) => user.age);

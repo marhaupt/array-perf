@@ -1,8 +1,8 @@
 <script lang="ts">
-    import { page } from '$app/stores';
-    import { methods } from '$lib/methods';
-    import { onMount } from 'svelte';
-    import Logo from './Logo.svelte';
+    import { page } from "$app/stores";
+    import { methods } from "$lib/methods";
+    import { onMount } from "svelte";
+    import Logo from "./Logo.svelte";
 
     let withActive = false;
 
@@ -15,7 +15,7 @@
 </script>
 
 <nav>
-    {#if $page.url.pathname !== '/'}
+    {#if $page.url.pathname !== "/"}
         <a
             href="/"
             style:view-transition-name="logo"

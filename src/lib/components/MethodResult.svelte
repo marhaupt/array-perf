@@ -1,15 +1,15 @@
 <script lang="ts">
-    import * as ToggleGroup from '$lib/components/ui/toggle-group';
-    import { getOperationDuration } from '$lib/getOperationDuration';
-    import { getDataByCount } from '$lib/list/getDataByCount';
-    import type { Count } from '$lib/types/Count';
-    import type { Method } from '$lib/types/Method';
-    import { Crown } from 'lucide-svelte';
-    import Code from './Code.svelte';
+    import * as ToggleGroup from "$lib/components/ui/toggle-group";
+    import { getOperationDuration } from "$lib/getOperationDuration";
+    import { getDataByCount } from "$lib/list/getDataByCount";
+    import type { Count } from "$lib/types/Count";
+    import type { Method } from "$lib/types/Method";
+    import { Crown } from "lucide-svelte";
+    import Code from "./Code.svelte";
 
     export let methodToTest: Method;
 
-    export let count: Count = 'thousand';
+    export let count: Count = "thousand";
     let previousCount: Count;
 
     let durations: number[] = [];
@@ -25,9 +25,9 @@
             methodToTest.methods.forEach(
                 (method, index) => {
                     durations[index] = getOperationDuration(
-                        () => method.fn(data)
+                        () => method.fn(data),
                     );
-                }
+                },
             );
         }
     }
@@ -85,10 +85,10 @@
                 {#if durations?.[index] !== undefined}
                     <strong class="text-primary">
                         {durations[index].toLocaleString(
-                            'cs-CZ',
+                            "cs-CZ",
                             {
-                                maximumFractionDigits: 3
-                            }
+                                maximumFractionDigits: 3,
+                            },
                         )} ms
                     </strong>
 

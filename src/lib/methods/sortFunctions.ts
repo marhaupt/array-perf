@@ -1,4 +1,4 @@
-import type { User } from '$lib/types/User';
+import type { User } from "$lib/types/User";
 
 export const oldSchoolSort = (data: User[]) => {
     [...data].sort((userA, userB) => userA.age - userB.age);

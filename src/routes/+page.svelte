@@ -1,6 +1,6 @@
 <script lang="ts">
-    import Logo from '$lib/components/Logo.svelte';
-    import Navigation from '$lib/components/Navigation.svelte';
+    import Logo from "$lib/components/Logo.svelte";
+    import Navigation from "$lib/components/Navigation.svelte";
 </script>
 
 <div class="home">
@@ -18,7 +18,7 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        min-height: 70svh;
+        min-height: 70svhs;
         flex-direction: column;
         font-size: 24px;
         padding-inline: 16px;

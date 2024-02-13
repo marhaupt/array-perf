@@ -1,8 +1,8 @@
 <script>
-    import { onNavigate } from '$app/navigation';
-    import { ModeWatcher } from 'mode-watcher';
-    import '../app.pcss';
-    import ModeSwitch from '$lib/components/ModeSwitch.svelte';
+    import { onNavigate } from "$app/navigation";
+    import ModeSwitch from "$lib/components/ModeSwitch.svelte";
+    import { ModeWatcher } from "mode-watcher";
+    import "../app.pcss";
 
     onNavigate((navigation) => {
         // @ts-ignore
@@ -22,7 +22,7 @@
     <ModeSwitch />
 </div>
 
-<ModeWatcher />
+<ModeWatcher defaultMode="dark" />
 <div class="app">
     <slot />
 </div>

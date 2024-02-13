@@ -1,6 +1,6 @@
 <script lang="ts">
-    import MethodResult from '$lib/components/MethodResult.svelte';
-    import { methods } from '$lib/methods';
+    import MethodResult from "$lib/components/MethodResult.svelte";
+    import { methods } from "$lib/methods";
 </script>
 
 <MethodResult

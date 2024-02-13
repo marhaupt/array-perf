@@ -1,4 +1,4 @@
-import type { User } from '$lib/types/User';
+import type { User } from "$lib/types/User";
 
 export type Method = {
     key: string;

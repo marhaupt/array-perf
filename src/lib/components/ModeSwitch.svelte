@@ -1,8 +1,8 @@
 <script lang="ts">
-    import { Button } from '$lib/components/ui/button';
-    import * as DropdownMenu from '$lib/components/ui/dropdown-menu';
-    import { Sun, Moon, Computer } from 'lucide-svelte';
-    import { setMode, resetMode } from 'mode-watcher';
+    import { Button } from "$lib/components/ui/button";
+    import * as DropdownMenu from "$lib/components/ui/dropdown-menu";
+    import { Sun, Moon, Computer } from "lucide-svelte";
+    import { setMode, resetMode } from "mode-watcher";
 </script>
 
 <DropdownMenu.Root>
@@ -23,12 +23,12 @@
     </DropdownMenu.Trigger>
     <DropdownMenu.Content align="end">
         <DropdownMenu.Item
-            on:click={() => setMode('light')}
+            on:click={() => setMode("light")}
         >
             <Sun class="mr-2 size-4" />
             Light
         </DropdownMenu.Item>
-        <DropdownMenu.Item on:click={() => setMode('dark')}>
+        <DropdownMenu.Item on:click={() => setMode("dark")}>
             <Moon class="mr-2 size-4" />
             Dark
         </DropdownMenu.Item>

@@ -1,6 +1,6 @@
 export const getOperationDuration = (
     operation: () => void,
-    repeatCount: number = 1000
+    repeatCount: number = 1000,
 ): number => {
     const start = performance.now();
 

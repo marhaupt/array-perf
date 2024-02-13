@@ -1,1 +1,1 @@
-export type Count = 'ten' | 'hundred' | 'thousand';
+export type Count = "ten" | "hundred" | "thousand";
