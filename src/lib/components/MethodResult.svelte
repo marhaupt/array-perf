@@ -5,6 +5,8 @@
     import { onMount } from 'svelte';
     import Code from './Code.svelte';
     import { getDataByCount } from '$lib/list/getDataByCount';
+    import { fly } from 'svelte/transition';
+    import { Crown } from 'lucide-svelte';
 
     export let methodToTest: Method;
 
@@ -28,22 +30,26 @@
             );
         });
     });
+
+    $: minValue = Math.min(...durations);
 </script>
 
 <h1
     style:view-transition-name="title-{methodToTest.key}"
-    class="mb-7 mt-4 text-center text-3xl text-[#65ebab] sm:text-left sm:text-4xl"
+    class="mb-2 mt-4 text-center text-3xl text-[#65ebab] sm:text-left sm:text-4xl"
 >
     {methodToTest.title}
-    <span class="block opacity-40 sm:inline">
-        // Array({countNumber})</span
-    >
 </h1>
 
 <div class="flex flex-col gap-7 text-center sm:text-left">
+    <div class=" block text-xl text-[#65ebab] opacity-40">
+        {countNumber} elements
+    </div>
     {#each methodToTest.methods as method, index}
         <div>
-            <h2 class="text-2xl text-[#fc970c]">
+            <h2
+                class="flex items-center justify-center gap-2 text-2xl text-[#fc970c] sm:justify-start"
+            >
                 {method.title}
                 {#if durations?.[index]}
                     <strong class="text-primary">
@@ -52,8 +58,14 @@
                             {
                                 maximumFractionDigits: 3
                             }
-                        ) + ' ms'}
+                        )} ms
                     </strong>
+
+                    {#if durations[index] === minValue}
+                        <span class="text-[#65ebab]">
+                            <Crown />
+                        </span>
+                    {/if}
                 {/if}
             </h2>
             <Code>
