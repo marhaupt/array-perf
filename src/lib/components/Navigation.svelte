@@ -48,7 +48,7 @@
     }
 
     a.active {
-        color: #65ebab;
+        color: hsl(var(--secondary-foreground));
         cursor: default;
     }
 </style>

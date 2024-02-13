@@ -15,7 +15,7 @@
         grid-template-columns: 260px minmax(0, 1fr);
         row-gap: 8px;
         column-gap: 32px;
-        padding-top: clamp(12px, 6vw, 32px);
+        padding-top: clamp(12px, 4vw, 24px);
     }
 
     @media (max-width: 640px) {
