@@ -16,6 +16,7 @@
         row-gap: 8px;
         column-gap: 32px;
         padding-top: clamp(12px, 4vw, 24px);
+        padding-top: 24px;
     }
 
     @media (max-width: 1024px) {

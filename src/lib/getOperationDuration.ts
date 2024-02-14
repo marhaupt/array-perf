@@ -1,7 +1,9 @@
-export const getOperationDuration = (operation: () => void, repeatCount: number = 1000): number => {
+import { TEST_REPEAT_COUNT } from "./constants";
+
+export const getOperationDuration = (operation: () => void): number => {
     const start = performance.now();
 
-    for (let i = 0; i < repeatCount; i++) {
+    for (let i = 0; i < TEST_REPEAT_COUNT; i++) {
         operation();
     }
 

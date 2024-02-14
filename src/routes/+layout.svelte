@@ -29,7 +29,7 @@
 
 <style lang="postcss">
     .app {
-        padding-block: 48px 32px;
+        padding-block: 24px 32px;
         padding-inline: clamp(16px, 4vw, 32px);
     }
 

@@ -41,7 +41,9 @@
 <div
     class="mx-auto flex max-w-[600px] flex-col gap-7 text-center lg:mx-0 lg:max-w-[800px] lg:text-left"
 >
-    <div class="flex justify-center text-xl text-secondary-foreground lg:justify-start">
+    <div
+        class="flex items-center justify-center gap-[1ch] text-xl text-secondary-foreground lg:justify-start"
+    >
         <ToggleGroup.Root type="single" size="sm" bind:value={count}>
             <ToggleGroup.Item value="ten" aria-label="Toggle 10" class="text-[1rem]">
                 10
@@ -53,6 +55,7 @@
                 1000
             </ToggleGroup.Item>
         </ToggleGroup.Root>
+        <span class="text-sm"> elements </span>
     </div>
     {#each methodToTest.methods as method, index}
         <div>
